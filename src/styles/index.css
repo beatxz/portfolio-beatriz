@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; background: #0B0B0A; }
+  body {
+    @apply bg-ink font-sans text-paper antialiased;
+    overflow-x: clip;
+  }
+  ::selection { background: #F2541B; color: #0B0B0A; }
+  :focus-visible { outline: 2px solid #F2541B; outline-offset: 4px; }
+  img { max-width: 100%; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  /* Tipografia display: Archivo condensada e pesada */
+  .font-display-x {
+    font-family: 'Archivo', 'Arial Narrow', sans-serif;
+    font-weight: 900;
+    font-stretch: 62%;
+    text-transform: uppercase;
+    line-height: 0.8;
+    letter-spacing: -0.01em;
+  }
+  .font-display-md {
+    font-family: 'Archivo', 'Arial Narrow', sans-serif;
+    font-weight: 800;
+    font-stretch: 75%;
+    text-transform: uppercase;
+    line-height: 1.08;
+  }
+  .label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .px-gutter { padding-left: clamp(20px, 4vw, 56px); padding-right: clamp(20px, 4vw, 56px); }
+  .mx-gutter { margin-left: clamp(20px, 4vw, 56px); margin-right: clamp(20px, 4vw, 56px); }
+  .py-section { padding-top: clamp(96px, 12vw, 190px); padding-bottom: clamp(96px, 12vw, 190px); }
+  .text-pretty { text-wrap: pretty; }
+  .text-balance { text-wrap: balance; }
+
+  .skip-link {
+    position: fixed; left: 16px; top: -60px; z-index: 100;
+    background: #F2541B; color: #0B0B0A; padding: 10px 16px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase;
+  }
+  .skip-link:focus { top: 16px; }
+
+  .stripes {
+    background: repeating-linear-gradient(135deg, #141413 0 12px, #191918 12px 24px);
+  }
+}
